@@ -25,3 +25,17 @@ class HTMLTemplate(models.Model):
 
 
 # Шаблоны созданых Body элементов
+class BodyTemplateContent(models.Model):
+    template = models.ForeignKey(BodyTemplate, models.DO_NOTHING)
+    name = models.CharField(max_length=400)
+    temp_body_id = models.CharField(max_length=500)
+    text = models.TextField
+
+
+# Шаблоны созданых div элементов
+class DivSTemplateContent(models.Model):
+    template = models.ForeignKey(DivSTemplate, models.DO_NOTHING)
+    name = models.CharField(max_length=400)
+    temp_body_id = models.CharField(max_length=500)
+    header = models.TextField
+    text = models.TextField
