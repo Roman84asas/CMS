@@ -6,6 +6,9 @@ body {
 .d-flex {
     display: flex;
 }
+.active {
+    background-color: #5ac955;
+}
 .htmles header{
     width: 100%;
     padding: 5px 0;
@@ -68,24 +71,39 @@ body {
 .block_item .block_item_bottom {
     width: 100%;
     height: auto;
-    border: 1px solid #2b2b2b;
+    border: 2px solid #2b2b2b;
 }
 .block_item .block_item_bottom .block_item_bottom_top {
     padding: 5px 5px;
     height: auto;
     text-transform: uppercase;
-    border-bottom: 1px solid #2b2b2b;
+    border-bottom: 2px solid #2b2b2b;
+}
+.block_item .block_item_bottom .block_item_bottom_all {
+    padding: 5px 5px;
 }
 
 .template_block_body {
     margin-top: 25px;
     margin-bottom: 25px;
 }
+.template_block_body .template_block_body_bottom .template_block_body_bottom_all {
+    height: 100px;
+    overflow-x: scroll;
+}
 
 .template_block_div {
     margin-bottom: 25px;
 }
+.template_block_div .template_block_div_bottom .template_block_div_bottom_all {
+    height: 200px;
+    overflow-x: scroll;
+}
 
 .template_block_html {
     margin-bottom: 25px;
+}
+.template_block_html .template_block_html_bottom .template_block_html_bottom_all {
+    height: 150px;
+    overflow-x: scroll;
 }
