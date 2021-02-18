@@ -9,6 +9,12 @@ body {
 .active {
     background-color: #5ac955;
 }
+.center-div {
+    margin-bottom: 55px !important;
+}
+.scroll {
+    overflow-y: scroll;
+}
 .htmles header{
     width: 100%;
     padding: 5px 0;
@@ -113,4 +119,30 @@ body {
 .template_block_html .template_block_html_bottom .template_block_html_bottom_all {
     height: 150px;
     overflow-y: scroll;
+}
+
+.htmles_all_right {
+    padding: 45px 15px 15px 15px;
+}
+.htmles_all_right .htmles_all_right_block {
+    margin-bottom: 25px;
+}
+.htmles_all_right .htmles_all_right_block:last-child {
+    margin-bottom: 0;
+}
+.htmles_all_right_block_content {
+    border: 2px solid #2b2b2b;
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.htmles_all_right_block_top {
+    padding: 5px 5px;
+    height: auto;
+    border-bottom: 2px solid #2b2b2b
+}
+.htmles_all_right_block_all {
+    padding: 5px 5px;
 }
