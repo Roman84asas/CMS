@@ -8,3 +8,11 @@ def index(request):
 
 def index_htmles(request):
     return render(request, 'htmles/index.html')
+
+
+def index_bodys(request):
+    return render(request, 'bodys/index.html')
+
+
+def index_dives(request):
+    return render(request, 'dives/index.html')

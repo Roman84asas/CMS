@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('htmles/', views.index_htmles),
+    path('bodys/', views.index_bodys),
+    path('dives/', views.index_dives),
 ]
