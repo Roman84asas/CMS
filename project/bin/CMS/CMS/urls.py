@@ -23,4 +23,7 @@ urlpatterns = [
     path('htmles/', views.index_htmles),
     path('bodys/', views.index_bodys),
     path('dives/', views.index_dives),
+    path('htmles/create/', views.create_htmles),
+    path('bodys/create/', views.create_bodys),
+    path('dives/create/', views.create_dives),
 ]
