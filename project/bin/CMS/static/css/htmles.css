@@ -65,7 +65,10 @@ body {
     justify-content: center;
     cursor: pointer;
 }
-
+.block_item .block_item_bottom {
+    width: 100%;
+    height: auto;
+}
 
 .template_block_body {
     margin-top: 25px;
