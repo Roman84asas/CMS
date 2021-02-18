@@ -19,3 +19,7 @@ body {
   color: #5ac955;
   text-shadow: -5px -5px 0 #06adc3, 5px 5px 0 #b21f86;
 }
+.main .all_body{
+  max-width: 1200px;
+  width: 100%;
+}
