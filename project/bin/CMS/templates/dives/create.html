@@ -1,10 +1,66 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href='{% static "css/dives.css" %}' type="text/css">
     <title>DIV создание</title>
 </head>
-<body>
-<h1>Создайте ваш первый DIV блок</h1>
+<body class="dives">
+    <header>
+        <div class="header_block"><span>Создайте ваш DIV блок</span></div>
+    </header>
+    <section class="dives_all d-flex">
+        <div class="dives_all_left">
+            <div class="template_block_body block_item">
+                <div class="template_block_body_top d-flex block_item_top">
+                    <button>Добавить</button>
+                    <button>Удалить</button>
+                </div>
+                <div class="template_block_body_bottom block_item_bottom">
+                    <div class="template_block_body_bottom_top block_item_bottom_top">
+                        Шаблон BODY HTML
+                    </div>
+                    <div class="template_block_body_bottom_all block_item_bottom_all">
+                        <a href="/" class="item">Основной uveon</a>
+                        <a href="/" class="item">Основной termidesc</a>
+                    </div>
+                </div>
+            </div>
+            <div class="template_block_div block_item">
+                <div class="template_block_div_top d-flex block_item_top active">
+                    <button>Добавить</button>
+                    <button>Удалить</button>
+                </div>
+                <div class="template_block_div_bottom block_item_bottom">
+                    <div class="template_block_div_bottom_top block_item_bottom_top">
+                        Шаблон BODY HTML
+                    </div>
+                    <div class="template_block_div_bottom_all block_item_bottom_all">
+                        <a href="/" class="item">Основной uveon</a>
+                        <a href="/" class="item">Основной termidesc</a>
+                    </div>
+                </div>
+            </div>
+            <div class="template_block_html block_item">
+                <div class="template_block_html_top d-flex block_item_top">
+                    <button>Добавить</button>
+                    <button>Удалить</button>
+                </div>
+                <div class="template_block_html_bottom block_item_bottom">
+                    <div class="template_block_html_bottom_top block_item_bottom_top">
+                        Шаблон BODY HTML
+                    </div>
+                    <div class="template_block_html_bottom_all block_item_bottom_all">
+                        <a href="/" class="item">Основной uveon</a>
+                        <a href="/" class="item">Основной termidesc</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dives_all_right">
+
+        </div>
+    </section>
 </body>
 </html>
