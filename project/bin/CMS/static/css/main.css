@@ -1,3 +1,6 @@
+body {
+  background-color: #f4f4f4;
+}
 .main header .header_block{
   max-width: 250px;
   width: 100%;
@@ -5,5 +8,7 @@
 }
 .main header .header_block span{
   display: block;
-  font-size: 35px;
+  font-size: 55px;
+  color: #5ac955;
+  text-shadow: -5px -5px 0 #06adc3, 5px 5px 0 #b21f86;
 }
