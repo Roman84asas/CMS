@@ -96,7 +96,7 @@ body {
 }
 .template_block_body .template_block_body_bottom .template_block_body_bottom_all {
     height: 100px;
-    overflow-x: scroll;
+    overflow-y: scroll;
 }
 
 .template_block_div {
@@ -112,5 +112,5 @@ body {
 }
 .template_block_html .template_block_html_bottom .template_block_html_bottom_all {
     height: 150px;
-    overflow-x: scroll;
+    overflow-y: scroll;
 }
