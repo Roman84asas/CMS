@@ -68,6 +68,13 @@ body {
 .block_item .block_item_bottom {
     width: 100%;
     height: auto;
+    border: 1px solid #2b2b2b;
+}
+.block_item .block_item_bottom .block_item_bottom_top {
+    padding: 5px 5px;
+    height: auto;
+    text-transform: uppercase;
+    border-bottom: 1px solid #2b2b2b;
 }
 
 .template_block_body {
