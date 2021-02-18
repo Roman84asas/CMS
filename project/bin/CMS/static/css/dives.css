@@ -63,6 +63,16 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.block_item .block_item_top button:hover {
+    background-color: #445ac7;
+    border: 1px solid #445ac7;
+    transition: all 0.3s ease-in-out;
+}
+.block_item .block_item_top button a{
+    color: #2b2b2b;
+    text-decoration: none;
 }
 .block_item .block_item_bottom {
     width: 100%;

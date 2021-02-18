@@ -73,6 +73,16 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.block_item .block_item_top button:hover {
+    background-color: #5ac955;
+    border: 1px solid #5ac955;
+    transition: all 0.3s ease-in-out;
+}
+.block_item .block_item_top button a{
+    color: #2b2b2b;
+    text-decoration: none;
 }
 .block_item .block_item_bottom {
     width: 100%;
@@ -145,4 +155,41 @@ body {
 }
 .htmles_all_right_block_all {
     padding: 5px 5px;
+}
+.htmles_all_right_block_all span{
+    display: block;
+    cursor: pointer;
+    padding: 3px 0;
+    transition: all 0.3s ease-in-out;
+}
+.htmles_all_right_block_all span:hover{
+    transition: all 0.3s ease-in-out;
+    color: #5ac955;
+}
+.htmles_all_right_block_top_b {
+    justify-content: space-between;
+    padding: 10px 0;
+    max-width: 800px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.htmles_all_right .htmles_all_right_block button {
+    display: flex;
+    width: 180px;
+    height: 30px;
+    border-radius: 7px;
+    background-color: #d4d3d3;
+    color: #2b2b2b;
+    font-size: 18px;
+    border: 1px solid #2b2b2b;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.htmles_all_right .htmles_all_right_block button:hover {
+    background-color: #5ac955;
+    border: 1px solid #5ac955;
+    transition: all 0.3s ease-in-out;
 }
