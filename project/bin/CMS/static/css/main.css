@@ -1,5 +1,12 @@
 body {
   background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+.main header{
+  width: 100%;
+  padding: 5px 0;
+  border-bottom: 1px solid #4f4f4f;
 }
 .main header .header_block{
   max-width: 250px;
