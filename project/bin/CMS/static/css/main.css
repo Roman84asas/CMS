@@ -73,14 +73,15 @@ body {
     padding: 5px;
     transition: all 0.3s ease-in-out;
 }
-.main .all_body .all_body_static_files .project{
-    border-radius: 15px;
-    display: block;
-    margin: 5px;
-    width: 250px;
-    height: 350px;
-    box-shadow: 0 0 15px #4f4f4f;
-    padding: 5px;
-    transition: all 0.3s ease-in-out;
-    text-decoration: none;
+.main .all_body .all_body_static_files .project .project_title{
+    color: #2b2b2b;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.main .all_body .all_body_static_files .project .project_descr{
+    color: #2b2b2b;
+    font-size: 18px;
+    padding-bottom: 15px;
 }
