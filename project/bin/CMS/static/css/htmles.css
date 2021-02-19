@@ -193,3 +193,7 @@ body {
     border: 1px solid #5ac955;
     transition: all 0.3s ease-in-out;
 }
+.htmles_all_right_block_all .input_top {
+    width: 99%;
+    height: 100%;
+}
