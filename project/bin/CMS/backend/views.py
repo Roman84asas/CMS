@@ -2,6 +2,9 @@ from django.shortcuts import render
 
 
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
+from backend.forms import FormBody
+
+
 def index(request):
     return render(request, 'index.html')
 
@@ -15,11 +18,19 @@ def create_htmles(request):
 
 
 def index_bodys(request):
-    return render(request, 'bodys/index.html')
+    form_body = FormBody()
+    form_body.initial["name"] = 'Основной термидеск'
+    form_body.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
+    form_body.initial["all_body"] = 'Content'
+    return render(request, 'bodys/index.html', {"form": form_body})
 
 
 def create_bodys(request):
-    return render(request, 'bodys/create.html')
+    form_body = FormBody()
+    form_body.initial["name"] = 'Основной термидеск'
+    form_body.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
+    form_body.initial["all_body"] = 'Content'
+    return render(request, 'bodys/create.html', {"form": form_body})
 
 
 def index_dives(request):

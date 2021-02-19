@@ -59,7 +59,42 @@
             </div>
         </div>
         <div class="bodys_all_right">
-
+            <form method="post">
+                {% csrf_token %}
+                <div class="bodys_all_right_block">
+                    <div class="bodys_all_right_block_content">
+                        <div class="bodys_all_right_block_top active">
+                            Имя шаблона BODY HTML
+                        </div>
+                        <div class="bodys_all_right_block_all content-top">
+                            {{ form.name }}
+                        </div>
+                    </div>
+                </div>
+                <div class="bodys_all_right_block">
+                    <div class="bodys_all_right_block_content">
+                        <div class="bodys_all_right_block_top active">
+                            Template BODY ID
+                        </div>
+                        <div class="bodys_all_right_block_all content-center">
+                            {{ form.name_id }}
+                        </div>
+                    </div>
+                </div>
+                <div class="bodys_all_right_block">
+                    <div class="bodys_all_right_block_content">
+                        <div class="bodys_all_right_block_top active">
+                            Код шаблона BODY HTML
+                        </div>
+                        <div class="bodys_all_right_block_all content-bottom">
+                            {{ form.all_body }}
+                        </div>
+                    </div>
+                </div>
+                <div class="bodys_all_right_block">
+                    <button type="button" value="send">Создать</button>
+                </div>
+            </form>
         </div>
     </section>
 </body>
