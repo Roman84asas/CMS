@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
-from backend.forms import FormBody
+from backend.forms import FormBody, FormDives
 
 
 def index(request):
@@ -34,8 +34,18 @@ def create_bodys(request):
 
 
 def index_dives(request):
+    form_dives = FormDives()
+    form_dives.initial["name"] = 'Основной термидеск'
+    form_dives.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
+    form_dives.initial["title_body"] = 'Content title'
+    form_dives.initial["all_body"] = 'Content all'
     return render(request, 'dives/index.html')
 
 
 def create_dives(request):
+    form_dives = FormDives()
+    form_dives.initial["name"] = 'Основной термидеск'
+    form_dives.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
+    form_dives.initial["title_body"] = 'Content title'
+    form_dives.initial["all_body"] = 'Content all'
     return render(request, 'dives/create.html')

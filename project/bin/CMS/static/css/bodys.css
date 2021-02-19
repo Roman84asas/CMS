@@ -31,7 +31,7 @@ body {
 }
 .bodys_all_left {
     width: 25%;
-    height: 100%;
+    height: auto;
     padding-top: 15px;
     padding-bottom: 15px;
     border-right: 1px solid #4f4f4f;

@@ -74,7 +74,58 @@
             </div>
         </div>
         <div class="dives_all_right">
-
+            <form method="post">
+                {% csrf_token %}
+                <div class="dives_all_right_block">
+                    <div class="dives_all_right_block_content">
+                        <div class="dives_all_right_block_top active">
+                            Имя Блока HTML
+                        </div>
+                        <div class="dives_all_right_block_all content-top">
+                            {{ form.name }}
+                        </div>
+                    </div>
+                </div>
+                <div class="dives_all_right_block">
+                    <div class="dives_all_right_block_content">
+                        <div class="dives_all_right_block_top active">
+                            Template BLOCK ID
+                        </div>
+                        <div class="dives_all_right_block_all content-center">
+                            {{ form.name_id }}
+                        </div>
+                    </div>
+                </div>
+                <div class="dives_all_right_block">
+                    <div class="dives_all_right_block_content">
+                        <div class="dives_all_right_block_top active">
+                            Код шаблона Заголовка BLOCK HTML
+                        </div>
+                        <div class="dives_all_right_block_all content-bottom">
+                            {{ form.title_body }}
+                        </div>
+                    </div>
+                </div>
+                <div class="dives_all_right_block">
+                    <div class="dives_all_right_block_content">
+                        <div class="dives_all_right_block_top active">
+                            Код шаблона Содержимого BLCOK HTML
+                        </div>
+                        <div class="dives_all_right_block_all content-bottom">
+                            {{ form.all_body }}
+                        </div>
+                    </div>
+                </div>
+                <div class="dives_all_right_block">
+                    <div class="dives_all_right_block_content content_show">
+                        <span>Демонстрация</span>
+                    </div>
+                </div>
+                <div class="dives_all_right_block d-flex">
+                    <button type="button">Показать</button>
+                    <button type="button" value="send">Обновить</button>
+                </div>
+            </form>
         </div>
     </section>
 </body>

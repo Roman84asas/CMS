@@ -31,7 +31,7 @@ body {
 }
 .dives_all_left {
     width: 25%;
-    height: 100%;
+    height: auto;
     padding-top: 15px;
     padding-bottom: 15px;
     border-right: 1px solid #4f4f4f;
@@ -119,4 +119,79 @@ body {
 .template_block_html .template_block_html_bottom .template_block_html_bottom_all {
     height: 150px;
     overflow-y: scroll;
+}
+
+.dives_all_right {
+    padding: 45px 15px 15px 15px;
+}
+.dives_all_right .dives_all_right_block {
+    margin-bottom: 25px;
+}
+.dives_all_right .dives_all_right_block:last-child {
+    margin-bottom: 0;
+}
+.dives_all_right_block_content {
+    border: 2px solid #2b2b2b;
+    max-width: 1000px;
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.dives_all_right_block_top {
+    padding: 5px 5px;
+    height: auto;
+    border-bottom: 2px solid #2b2b2b
+}
+.dives_all_right_block_all {
+    padding: 5px 5px;
+}
+.dives_all_right_block_all span{
+    display: block;
+    cursor: pointer;
+    padding: 3px 0;
+    transition: all 0.3s ease-in-out;
+}
+.dives_all_right_block_all span:hover{
+    transition: all 0.3s ease-in-out;
+    color: #5ac955;
+}
+.dives_all_right .dives_all_right_block button {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 180px;
+    height: 30px;
+    border-radius: 7px;
+    background-color: #d4d3d3;
+    color: #2b2b2b;
+    font-size: 18px;
+    border: 1px solid #2b2b2b;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.dives_all_right .dives_all_right_block button:hover {
+    background-color: #d0c01c;
+    border: 1px solid #d0c01c;
+    transition: all 0.3s ease-in-out;
+}
+.dives_all_right_block_all .input_top, .bdives_all_right_block_all .input_center, .dives_all_right_block_all .input_body {
+    width: 99%;
+    height: 99%;
+    border: none;
+    background-color: #f4f4f4;
+}
+.content-top {
+    height: 40px;
+}
+.content-center {
+    height: 80px;
+}
+.content-bottom {
+    height: 80px;
+}
+.content_show {
+    height: 450px;
 }
