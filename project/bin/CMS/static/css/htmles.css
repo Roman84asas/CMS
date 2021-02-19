@@ -196,4 +196,6 @@ body {
 .htmles_all_right_block_all .input_top {
     width: 99%;
     height: 100%;
+    border: none;
+    background-color: #f4f4f4;
 }
