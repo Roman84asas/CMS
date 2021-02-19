@@ -39,7 +39,7 @@ def index_dives(request):
     form_dives.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
     form_dives.initial["title_body"] = 'Content title'
     form_dives.initial["all_body"] = 'Content all'
-    return render(request, 'dives/index.html')
+    return render(request, 'dives/index.html', {"form": form_dives})
 
 
 def create_dives(request):
@@ -48,4 +48,4 @@ def create_dives(request):
     form_dives.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
     form_dives.initial["title_body"] = 'Content title'
     form_dives.initial["all_body"] = 'Content all'
-    return render(request, 'dives/create.html')
+    return render(request, 'dives/create.html', {"form": form_dives})
