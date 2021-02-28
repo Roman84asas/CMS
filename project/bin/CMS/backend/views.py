@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
 from backend.forms import FormBody, FormDives
-from backend.models import BodyTemplate
+from backend.models import BodyTemplate, DivSTemplate
 
 
 def index(request):
@@ -55,9 +55,23 @@ def index_dives(request):
 
 
 def create_dives(request):
-    form_dives = FormDives()
-    form_dives.initial["name"] = 'Основной термидеск'
-    form_dives.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
-    form_dives.initial["title_body"] = 'Content title'
-    form_dives.initial["all_body"] = 'Content all'
-    return render(request, 'dives/create.html', {"form": form_dives})
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        name_id = request.POST.get('name_id')
+        title_body = request.POST.get('title_body')
+        all_body = request.POST.get('all_body')
+        divs_template = DivSTemplate(name=name, temp_body_id=name_id, header=title_body, text=all_body)
+        divs_template.save()
+        form_body = FormBody()
+        form_body.initial["name"] = name
+        form_body.initial["name_id"] = name_id
+        form_body.initial["title_body"] = title_body
+        form_body.initial["all_body"] = all_body
+        return render(request, 'dives/create.html', {"form": form_body})
+    else:
+        form_dives = FormDives()
+        form_dives.initial["name"] = 'Основной термидеск'
+        form_dives.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
+        form_dives.initial["title_body"] = 'Content title'
+        form_dives.initial["all_body"] = 'Content all'
+        return render(request, 'dives/create.html', {"form": form_dives})
