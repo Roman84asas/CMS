@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import RedirectView
+
 from backend import views
 
 urlpatterns = [
@@ -26,4 +28,5 @@ urlpatterns = [
     path('htmles/create/', views.create_htmles),
     path('bodys/create/', views.create_bodys),
     path('dives/create/', views.create_dives),
+    path('favicon.ico', RedirectView.as_view(url='/static/img/termidesk_ico.png')),
 ]
