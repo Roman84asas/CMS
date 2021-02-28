@@ -62,12 +62,12 @@ def create_dives(request):
         all_body = request.POST.get('all_body')
         divs_template = DivSTemplate(name=name, temp_body_id=name_id, header=title_body, text=all_body)
         divs_template.save()
-        form_body = FormBody()
-        form_body.initial["name"] = name
-        form_body.initial["name_id"] = name_id
-        form_body.initial["title_body"] = title_body
-        form_body.initial["all_body"] = all_body
-        return render(request, 'dives/create.html', {"form": form_body})
+        form_dives = FormDives()
+        form_dives.initial["name"] = name
+        form_dives.initial["name_id"] = name_id
+        form_dives.initial["title_body"] = title_body
+        form_dives.initial["all_body"] = all_body
+        return render(request, 'dives/create.html', {"form": form_dives})
     else:
         form_dives = FormDives()
         form_dives.initial["name"] = 'Основной термидеск'
