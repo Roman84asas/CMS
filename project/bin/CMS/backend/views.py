@@ -1,8 +1,8 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
 from backend.forms import FormBody, FormDives
+from backend.models import BodyTemplate
 
 
 def index(request):
@@ -30,7 +30,8 @@ def create_bodys(request):
         name = request.POST.get('name')
         name_id = request.POST.get('name_id')
         all_body = request.POST.get('all_body')
-
+        body_template = BodyTemplate(name=name, temp_body_id=name_id, text=all_body)
+        body_template.save()
         form_body = FormBody()
         form_body.initial["name"] = name
         form_body.initial["name_id"] = name_id
