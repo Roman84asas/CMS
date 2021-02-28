@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
 from backend.forms import FormBody, FormDives
-from backend.models import BodyTemplate, DivSTemplate
+from .models import BodyTemplate, DivSTemplate, HTMLTemplate
 
 
 def index(request):
@@ -45,16 +45,23 @@ def create_bodys(request):
         return render(request, 'bodys/create.html', {"form": form_body})
 
 
+# Див элементы и методы работы с ними
 def index_dives(request):
+    body = BodyTemplate.objects.all()
+    dives = DivSTemplate.objects.all()
+    htmles = HTMLTemplate.objects.all()
     form_dives = FormDives()
     form_dives.initial["name"] = 'Основной термидеск'
     form_dives.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
     form_dives.initial["title_body"] = 'Content title'
     form_dives.initial["all_body"] = 'Content all'
-    return render(request, 'dives/index.html', {"form": form_dives})
+    return render(request, 'dives/index.html', {"form": form_dives, 'bodys': body, 'dives': dives, 'htmles': htmles})
 
 
 def create_dives(request):
+    body = BodyTemplate.objects.all()
+    dives = DivSTemplate.objects.all()
+    htmles = HTMLTemplate.objects.all()
     if request.method == 'POST':
         name = request.POST.get('name')
         name_id = request.POST.get('name_id')
@@ -67,11 +74,13 @@ def create_dives(request):
         form_dives.initial["name_id"] = name_id
         form_dives.initial["title_body"] = title_body
         form_dives.initial["all_body"] = all_body
-        return render(request, 'dives/create.html', {"form": form_dives})
+        return render(request, 'dives/create.html',
+                      {"form": form_dives, 'bodys': body, 'dives': dives, 'htmles': htmles})
     else:
         form_dives = FormDives()
         form_dives.initial["name"] = 'Основной термидеск'
         form_dives.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
         form_dives.initial["title_body"] = 'Content title'
         form_dives.initial["all_body"] = 'Content all'
-        return render(request, 'dives/create.html', {"form": form_dives})
+        return render(request, 'dives/create.html',
+                      {"form": form_dives, 'bodys': body, 'dives': dives, 'htmles': htmles})
