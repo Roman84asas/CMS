@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
 from backend.forms import FormBody, FormDives
 from .models import BodyTemplate, DivSTemplate, HTMLTemplate
+from .services import return_all_object
 
 
 def index(request):
@@ -11,11 +12,13 @@ def index(request):
 
 # Html элементы и методы работы с ними
 def index_htmles(request):
-    return render(request, 'htmles/index.html')
+    body, dives, htmles = return_all_object()
+    return render(request, 'htmles/index.html', {'bodys': body, 'dives': dives, 'htmles': htmles})
 
 
 def create_htmles(request):
-    return render(request, 'htmles/create.html')
+    body, dives, htmles = return_all_object()
+    return render(request, 'htmles/create.html', {'bodys': body, 'dives': dives, 'htmles': htmles})
 
 
 # Боди элементы и методы работы с ними
