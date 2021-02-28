@@ -30,10 +30,11 @@ def create_bodys(request):
         name = request.POST.get('name')
         name_id = request.POST.get('name_id')
         all_body = request.POST.get('all_body')
+
         form_body = FormBody()
-        form_body.initial["name"] = 'Основной термидеск'
-        form_body.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
-        form_body.initial["all_body"] = 'Content'
+        form_body.initial["name"] = name
+        form_body.initial["name_id"] = name_id
+        form_body.initial["all_body"] = all_body
         return render(request, 'bodys/create.html', {"form": form_body})
     else:
         form_body = FormBody()
