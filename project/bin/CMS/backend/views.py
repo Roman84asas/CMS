@@ -9,6 +9,7 @@ def index(request):
     return render(request, 'index.html')
 
 
+# Html элементы и методы работы с ними
 def index_htmles(request):
     return render(request, 'htmles/index.html')
 
@@ -17,15 +18,22 @@ def create_htmles(request):
     return render(request, 'htmles/create.html')
 
 
+# Боди элементы и методы работы с ними
 def index_bodys(request):
+    body = BodyTemplate.objects.all()
+    dives = DivSTemplate.objects.all()
+    htmles = HTMLTemplate.objects.all()
     form_body = FormBody()
     form_body.initial["name"] = 'Основной термидеск'
     form_body.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
     form_body.initial["all_body"] = 'Content'
-    return render(request, 'bodys/index.html', {"form": form_body})
+    return render(request, 'bodys/index.html', {"form": form_body, 'bodys': body, 'dives': dives, 'htmles': htmles})
 
 
 def create_bodys(request):
+    body = BodyTemplate.objects.all()
+    dives = DivSTemplate.objects.all()
+    htmles = HTMLTemplate.objects.all()
     if request.method == 'POST':
         name = request.POST.get('name')
         name_id = request.POST.get('name_id')
@@ -36,13 +44,15 @@ def create_bodys(request):
         form_body.initial["name"] = name
         form_body.initial["name_id"] = name_id
         form_body.initial["all_body"] = all_body
-        return render(request, 'bodys/create.html', {"form": form_body})
+        return render(request, 'bodys/create.html',
+                      {"form": form_body, 'bodys': body, 'dives': dives, 'htmles': htmles})
     else:
         form_body = FormBody()
         form_body.initial["name"] = 'Основной термидеск'
         form_body.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
         form_body.initial["all_body"] = 'Content'
-        return render(request, 'bodys/create.html', {"form": form_body})
+        return render(request, 'bodys/create.html',
+                      {"form": form_body, 'bodys': body, 'dives': dives, 'htmles': htmles})
 
 
 # Див элементы и методы работы с ними

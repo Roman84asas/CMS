@@ -22,8 +22,11 @@
                         Шаблон BODY HTML
                     </div>
                     <div class="template_block_body_bottom_all block_item_bottom_all">
-                        <a href="/" class="item">Основной uveon</a>
-                        <a href="/" class="item">Основной termidesc</a>
+                        {% if bodys.count > 0 %}
+                            {% for body in bodys %}
+                                <a href="/bodys/{{ body.id }}" class="item">{{ body.name }}</a>
+                            {% endfor %}
+                         {% endif %}
                     </div>
                 </div>
             </div>
@@ -37,8 +40,11 @@
                         Шаблон BODY HTML
                     </div>
                     <div class="template_block_div_bottom_all block_item_bottom_all">
-                        <a href="/" class="item">Основной uveon</a>
-                        <a href="/" class="item">Основной termidesc</a>
+                        {% if dives.count > 0 %}
+                            {% for dive in dives %}
+                                <a href="/dives/{{ dive.id }}" class="item">{{ dive.name }}</a>
+                            {% endfor %}
+                         {% endif %}
                     </div>
                 </div>
             </div>
@@ -52,8 +58,11 @@
                         Шаблон BODY HTML
                     </div>
                     <div class="template_block_html_bottom_all block_item_bottom_all">
-                        <a href="/" class="item">Основной uveon</a>
-                        <a href="/" class="item">Основной termidesc</a>
+                        {% if htmles.count > 0 %}
+                            {% for html in htmles %}
+                                <a href="/htmles/{{ html.id }}" class="item">{{ html.name }}</a>
+                            {% endfor %}
+                         {% endif %}
                     </div>
                 </div>
             </div>
