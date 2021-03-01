@@ -26,6 +26,7 @@ urlpatterns = [
     path('bodys/<int:elementid>/', views.index_bodys),
     path('bodys/delete_id/', views.delete_body_id),
     path('dives/<int:elementid>/', views.index_dives),
+    path('dives/delete_id/', views.delete_div_id),
     path('htmles/create/', views.create_htmles),
     path('bodys/create/<int:elementid>/', views.create_bodys),
     path('dives/create/<int:elementid>/', views.create_dives),
