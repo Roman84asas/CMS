@@ -3,11 +3,12 @@ from django.shortcuts import render
 
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
 from .services import return_all_object, return_body_object, return_dives_object, return_new_body, return_body_form, \
-    create_body, delete_body, return_new_div, return_div_form, create_div, delete_div
+    create_body, delete_body, return_new_div, return_div_form, create_div, delete_div, return_all_html
 
 
 def index(request):
-    return render(request, 'index.html')
+    htmles = return_all_html()
+    return render(request, 'index.html', {'htmles': htmles})
 
 
 # Html элементы и методы работы с ними

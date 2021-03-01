@@ -9,6 +9,11 @@ def return_all_object():
     return body, dives, htmles
 
 
+def return_all_html():
+    htmle = HTMLTemplate.objects.all()
+    return htmle
+
+
 def return_body_form(name, name_id, all_body):
     form_body = FormBody()
     form_body.initial["name"] = name
