@@ -14,7 +14,7 @@
         <div class="bodys_all_left">
             <div class="template_block_body block_item">
                 <div class="template_block_body_top d-flex block_item_top">
-                    <button><a href="/bodys/create/">Добавить</a></button>
+                    <button><a href="/bodys/">Добавить</a></button>
                     <button>Удалить</button>
                 </div>
                 <div class="template_block_body_bottom block_item_bottom">
@@ -24,7 +24,7 @@
                     <div class="template_block_body_bottom_all block_item_bottom_all">
                         {% if bodys.count > 0 %}
                             {% for body in bodys %}
-                                <a href="/bodys/{{ body.id }}" class="item">{{ body.name }}</a>
+                                <div data-bodys="{{ body.id }}" class="item item-body">{{ body.name }}</div>
                             {% endfor %}
                         {% endif %}
                     </div>
@@ -32,7 +32,7 @@
             </div>
             <div class="template_block_div block_item">
                 <div class="template_block_div_top d-flex block_item_top">
-                    <button><a href="/dives/create/">Добавить</a></button>
+                    <button><a href="/dives/">Добавить</a></button>
                     <button>Удалить</button>
                 </div>
                 <div class="template_block_div_bottom block_item_bottom">
@@ -42,7 +42,7 @@
                     <div class="template_block_div_bottom_all block_item_bottom_all">
                         {% if dives.count > 0 %}
                             {% for dive in dives %}
-                                <a href="/dives/{{ dive.id }}" class="item">{{ dive.name }}</a>
+                                <div data-dive="{{ dive.id }}" class="item">{{ dive.name }}</div>
                             {% endfor %}
                         {% endif %}
                     </div>
@@ -50,7 +50,7 @@
             </div>
             <div class="template_block_html block_item">
                 <div class="template_block_html_top d-flex block_item_top">
-                    <button><a href="/htmles/create/">Добавить</a></button>
+                    <button><a href="/htmles/">Добавить</a></button>
                     <button>Удалить</button>
                 </div>
                 <div class="template_block_html_bottom block_item_bottom">
@@ -60,7 +60,7 @@
                     <div class="template_block_html_bottom_all block_item_bottom_all">
                         {% if htmles.count > 0 %}
                             {% for html in htmles %}
-                                <a href="/htmles/{{ html.id }}" class="item">{{ html.name }}</a>
+                                <div data-htmle="{{ html.id }}" class="item">{{ html.name }}</div>
                             {% endfor %}
                         {% endif %}
                     </div>

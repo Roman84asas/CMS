@@ -104,6 +104,18 @@ body {
     font-size: 16px;
     display: block;
     padding: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.block_item .block_item_bottom .block_item_bottom_all .item:hover{
+    text-decoration: none;
+    color: #2b2b2b;
+    font-size: 16px;
+    display: block;
+    padding: 3px;
+    cursor: pointer;
+    background-color: #5ac955;
+    transition: all 0.3s ease-in-out;
 }
 
 .template_block_body {
