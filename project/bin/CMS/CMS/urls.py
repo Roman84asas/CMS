@@ -22,10 +22,10 @@ from backend import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('htmles/<int:elementid>/', views.index_htmles),
+    path('htmles/', views.index_htmles),
     path('bodys/<int:elementid>/', views.index_bodys),
     path('dives/<int:elementid>/', views.index_dives),
-    path('htmles/create/<int:elementid>/', views.create_htmles),
+    path('htmles/create/', views.create_htmles),
     path('bodys/create/<int:elementid>/', views.create_bodys),
     path('dives/create/<int:elementid>/', views.create_dives),
     path('favicon.ico', RedirectView.as_view(url='/static/img/termidesk_ico.png')),
