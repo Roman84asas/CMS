@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
 from backend.forms import FormBody, FormDives
 from .models import BodyTemplate, DivSTemplate
-from .services import return_all_object, return_body_object, return_dives_object
+from .services import return_all_object, return_body_object, return_dives_object, return_new_body
 
 
 def index(request):
@@ -28,8 +28,7 @@ def index_bodys(request, elementid):
         name = request.POST.get('name')
         name_id = request.POST.get('name_id')
         all_body = request.POST.get('all_body')
-        body_template = BodyTemplate(name=name, temp_body_id=name_id, text=all_body)
-        body_template.save()
+        return_new_body(elementid, name, name_id, all_body)
         form_body = FormBody()
         form_body.initial["name"] = name
         form_body.initial["name_id"] = name_id
