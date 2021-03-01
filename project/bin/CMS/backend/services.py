@@ -22,6 +22,11 @@ def create_body(name, name_id, all_body):
     body_template.save()
 
 
+def delete_body(id):
+    body_template = BodyTemplate.objects.get(id=id)
+    body_template.delete()
+
+
 def return_body_object(elementid):
     body = BodyTemplate.objects.get(id=elementid)
     return body.name, body.temp_body_id, body.text

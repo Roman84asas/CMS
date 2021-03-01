@@ -24,6 +24,7 @@ urlpatterns = [
     path('', views.index),
     path('htmles/', views.index_htmles),
     path('bodys/<int:elementid>/', views.index_bodys),
+    path('bodys/delete_id/', views.delete_body_id),
     path('dives/<int:elementid>/', views.index_dives),
     path('htmles/create/', views.create_htmles),
     path('bodys/create/<int:elementid>/', views.create_bodys),
