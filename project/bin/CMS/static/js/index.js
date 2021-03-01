@@ -5,6 +5,11 @@
 
    itemBody.forEach(function (element) {
        element.addEventListener('click', function (){
+           itemBody.forEach(function (elements){
+               elements.classList.remove('active')
+           })
+           element.classList.add('active');
+
            const valueData = element.getAttribute('data-bodys');
 
            const hrefBody = document.querySelector('#bodys');
@@ -25,6 +30,11 @@
    })
     itemDive.forEach(function (element) {
        element.addEventListener('click', function (){
+           itemDive.forEach(function (elements){
+               elements.classList.remove('active')
+           })
+           element.classList.add('active');
+
            const valueData = element.getAttribute('data-dive');
 
            const hrefBody = document.querySelector('#dives');
@@ -45,6 +55,11 @@
    })
     itemHtml.forEach(function (element) {
        element.addEventListener('click', function (){
+           itemHtml.forEach(function (elements){
+               elements.classList.remove('active')
+           })
+           element.classList.add('active');
+
            const valueData = element.getAttribute('data-htmle');
 
            const hrefBody = document.querySelector('#htmles');
