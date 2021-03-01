@@ -2,8 +2,6 @@ from django.http import JsonResponse
 from django.shortcuts import render
 
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
-from backend.forms import FormBody, FormDives
-from .models import BodyTemplate, DivSTemplate
 from .services import return_all_object, return_body_object, return_dives_object, return_new_body, return_body_form, \
     create_body, delete_body, return_new_div, return_div_form, create_div, delete_div
 
