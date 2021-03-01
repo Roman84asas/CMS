@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
 from backend.forms import FormBody, FormDives
 from .models import BodyTemplate, DivSTemplate
-from .services import return_all_object
+from .services import return_all_object, return_body_object
 
 
 def index(request):
@@ -22,16 +22,17 @@ def create_htmles(request):
 
 
 # Боди элементы и методы работы с ними
-def index_bodys(request):
+def index_bodys(request, elementid):
+    name, name_id, all_body = return_body_object(elementid)
     body, dives, htmles = return_all_object()
     form_body = FormBody()
-    form_body.initial["name"] = 'Основной термидеск'
-    form_body.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
-    form_body.initial["all_body"] = 'Content'
+    form_body.initial["name"] = name
+    form_body.initial["name_id"] = name_id
+    form_body.initial["all_body"] = all_body
     return render(request, 'bodys/index.html', {"form": form_body, 'bodys': body, 'dives': dives, 'htmles': htmles})
 
 
-def create_bodys(request):
+def create_bodys(request, elementid):
     body, dives, htmles = return_all_object()
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -46,16 +47,17 @@ def create_bodys(request):
         return render(request, 'bodys/create.html',
                       {"form": form_body, 'bodys': body, 'dives': dives, 'htmles': htmles})
     else:
+        name, name_id, all_body = return_body_object(elementid)
         form_body = FormBody()
-        form_body.initial["name"] = 'Основной термидеск'
-        form_body.initial["name_id"] = 'Описание идентификатора для привязки шаблона'
-        form_body.initial["all_body"] = 'Content'
+        form_body.initial["name"] = name
+        form_body.initial["name_id"] = name_id
+        form_body.initial["all_body"] = all_body
         return render(request, 'bodys/create.html',
                       {"form": form_body, 'bodys': body, 'dives': dives, 'htmles': htmles})
 
 
 # Див элементы и методы работы с ними
-def index_dives(request):
+def index_dives(request, elementid):
     body, dives, htmles = return_all_object()
     form_dives = FormDives()
     form_dives.initial["name"] = 'Основной термидеск'
@@ -65,7 +67,7 @@ def index_dives(request):
     return render(request, 'dives/index.html', {"form": form_dives, 'bodys': body, 'dives': dives, 'htmles': htmles})
 
 
-def create_dives(request):
+def create_dives(request, elementid):
     body, dives, htmles = return_all_object()
     if request.method == 'POST':
         name = request.POST.get('name')
