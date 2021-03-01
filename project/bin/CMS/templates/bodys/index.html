@@ -14,8 +14,8 @@
         <div class="bodys_all_left">
             <div class="template_block_body block_item">
                 <div class="template_block_body_top d-flex block_item_top">
-                    <button><a href="/bodys/">Добавить</a></button>
-                    <button>Удалить</button>
+                    <button><a href="/bodys/" id="bodys">Добавить</a></button>
+                    <button type="submit">Удалить</button>
                 </div>
                 <div class="template_block_body_bottom block_item_bottom">
                     <div class="template_block_body_bottom_top block_item_bottom_top active">
@@ -32,8 +32,8 @@
             </div>
             <div class="template_block_div block_item">
                 <div class="template_block_div_top d-flex block_item_top">
-                    <button><a href="/dives/">Добавить</a></button>
-                    <button>Удалить</button>
+                    <button><a href="/dives/" id="dives">Добавить</a></button>
+                    <button type="submit">Удалить</button>
                 </div>
                 <div class="template_block_div_bottom block_item_bottom">
                     <div class="template_block_div_bottom_top block_item_bottom_top">
@@ -42,7 +42,7 @@
                     <div class="template_block_div_bottom_all block_item_bottom_all">
                         {% if dives.count > 0 %}
                             {% for dive in dives %}
-                                <div data-dive="{{ dive.id }}" class="item">{{ dive.name }}</div>
+                                <div data-dive="{{ dive.id }}" class="item item-dive">{{ dive.name }}</div>
                             {% endfor %}
                         {% endif %}
                     </div>
@@ -50,8 +50,8 @@
             </div>
             <div class="template_block_html block_item">
                 <div class="template_block_html_top d-flex block_item_top">
-                    <button><a href="/htmles/">Добавить</a></button>
-                    <button>Удалить</button>
+                    <button><a href="/htmles/" id="htmles">Добавить</a></button>
+                    <button type="submit">Удалить</button>
                 </div>
                 <div class="template_block_html_bottom block_item_bottom">
                     <div class="template_block_html_bottom_top block_item_bottom_top">
@@ -60,7 +60,7 @@
                     <div class="template_block_html_bottom_all block_item_bottom_all">
                         {% if htmles.count > 0 %}
                             {% for html in htmles %}
-                                <div data-htmle="{{ html.id }}" class="item">{{ html.name }}</div>
+                                <div data-htmle="{{ html.id }}" class="item item-html">{{ html.name }}</div>
                             {% endfor %}
                         {% endif %}
                     </div>
@@ -106,5 +106,7 @@
             </form>
         </div>
     </section>
+    <script src='{% static "js/Query.min.js" %}'></script>
+    <script src='{% static "js/index.js" %}'></script>
 </body>
 </html>
