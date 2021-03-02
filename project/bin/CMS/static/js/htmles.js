@@ -2,9 +2,11 @@
     const addDiv = document.querySelector('#add_div');
     const addHeader = document.querySelector('#add_header');
     const addSp = document.querySelector('#add_sp');
+    const addSpH = document.querySelector('#add_sp_h');
     const close = document.querySelector('#close');
     const closeHead = document.querySelector('#close_head');
     const dataSp = document.querySelectorAll('.data_sp');
+    const dataSpH = document.querySelectorAll('.data_sp_h');
     const selectSp = document.querySelectorAll('.select_sp');
 
     addDiv.addEventListener('click', function (){
@@ -34,6 +36,16 @@
             addSp.setAttribute('data-add', valueData);
         })
     })
+    dataSpH.forEach(function (element) {
+        element.addEventListener('click', function () {
+            dataSpH.forEach(function (element) {
+                element.classList.remove('active')
+            })
+            element.classList.add('active')
+            const valueData = element.getAttribute('data-id');
+            addSpH.setAttribute('data-add', valueData);
+        })
+    })
     selectSp.forEach(function (element) {
         element.addEventListener('click', function () {
             selectSp.forEach(function (element) {
@@ -42,6 +54,8 @@
             element.classList.add('active')
         })
     })
+
+
 })()
 $(document).ready(function() {
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
@@ -49,7 +63,9 @@ $(document).ready(function() {
     const titleForm = document.querySelector('#title_form');
     const contentForm = document.querySelector('#content_form');
     const addSp = document.querySelector('#add_sp');
+    const addSpH = document.querySelector('#add_sp_h');
     const popup = document.querySelector('#hidden_popup');
+    const popupH = document.querySelector('#hidden_popup_header');
 
     $('#add_sp').on('click',function(e){
         e.preventDefault();
@@ -74,4 +90,28 @@ $(document).ready(function() {
             );
         }
     });
+    $('#add_sp_h').on('click',function(e){
+        e.preventDefault();
+        idHidden.value = ''
+        titleForm.value = ''
+        contentForm.value = ''
+        let valueData = addSpH.getAttribute('data-add');
+        if (valueData) {
+            $.post('/htmles/add_header/',
+                {
+                    'get_data': valueData,
+                     csrfmiddlewaretoken: csrftoken
+                },
+                function(response){
+                    if (response) {
+                        idHidden.value = response.data_id;
+                        titleForm.value = response.data_name;
+                        contentForm.value = response.data_text;
+                        popupH.style.display = 'none';
+                    }
+                }
+            );
+        }
+    });
+
 })

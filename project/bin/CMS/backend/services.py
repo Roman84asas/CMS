@@ -19,6 +19,11 @@ def add_div(get_data):
     return body
 
 
+def add_header(get_data):
+    body = BodyTemplate.objects.get(id=get_data)
+    return body
+
+
 def return_body_form(name, name_id, all_body):
     form_body = FormBody()
     form_body.initial["name"] = name

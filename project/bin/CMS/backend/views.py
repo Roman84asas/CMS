@@ -4,7 +4,8 @@ from django.shortcuts import render
 
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
 from .services import return_all_object, return_body_object, return_dives_object, return_new_body, return_body_form, \
-    create_body, delete_body, return_new_div, return_div_form, create_div, delete_div, return_all_html, add_div
+    create_body, delete_body, return_new_div, return_div_form, create_div, delete_div, return_all_html, add_div, \
+    add_header
 
 
 def index(request):
@@ -27,6 +28,19 @@ def add_div_id(request):
     data = {}
     get_data = request.POST.get('get_data')
     date = add_div(get_data)
+    data = {
+        'data_id': date.id,
+        'data_name': date.name,
+        'data_temp_body_id': date.temp_body_id,
+        'data_text': date.text
+    }
+    return HttpResponse(json.dumps(data), 'application/json')
+
+
+def add_header_id(request):
+    data = {}
+    get_data = request.POST.get('get_data')
+    date = add_header(get_data)
     data = {
         'data_id': date.id,
         'data_name': date.name,

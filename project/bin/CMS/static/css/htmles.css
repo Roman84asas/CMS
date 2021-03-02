@@ -272,7 +272,19 @@ body {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
+.data_sp_h {
+    font-size: 18px;
+    color: #2b2b2b;
+    display: block;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
 .data_sp:hover{
+    transition: all 0.3s ease-in-out;
+    color: #5ac955;
+}
+.data_sp_h:hover{
     transition: all 0.3s ease-in-out;
     color: #5ac955;
 }
