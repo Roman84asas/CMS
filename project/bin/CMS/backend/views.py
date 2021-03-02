@@ -39,7 +39,6 @@ def index_htmles(request, elementid):
             items.append(data)
         i += 1
     body, dives, htmles = return_all_object()
-    print(items)
     return render(request, 'htmles/index.html',
                   {'items': items, 'html_name': htmls.name, 'html_use_name': htmls.use_name, 'html_id': htmls.id,
                    'bodys': body, 'dives': dives, 'htmles': htmles})
@@ -73,6 +72,42 @@ def update_htmles(request):
         body_numbers = request.POST.get('body_numbers')
         body_numbers = json.loads(body_numbers)
         update_html(id_el, name, use_name, body_numbers)
+        data = {'mesg': 'Update'}
+        return HttpResponse(json.dumps(data), 'application/json')
+
+
+def update_create_html(request):
+    if request.method == 'POST':
+        data = {'masg': ''}
+        id_el = request.POST.get('id_el')
+        name = request.POST.get('name')
+        use_name = request.POST.get('use_name')
+        body_numbers = request.POST.get('body_numbers')
+        body_numbers = json.loads(body_numbers)
+        update_html(id_el, name, use_name, body_numbers)
+        htmls = html_content(id_el)
+        value = htmls.body_numbers
+        value = list(map(int, re.findall(r'\d+', value)))
+        items = []
+        i = 0
+        for item in value:
+            if i == 0:
+                date = add_header(item)
+                data = {
+                    'data_id': date.temp_body_id,
+                    'data_text': date.text
+                }
+                items.append(data)
+            else:
+                date = add_dives(item)
+                data = {
+                    'data_id': date.temp_body_id,
+                    'data_header': date.header,
+                    'data_text': date.text,
+                }
+                items.append(data)
+            i += 1
+        print(items)
         data = {'mesg': 'Update'}
         return HttpResponse(json.dumps(data), 'application/json')
 
