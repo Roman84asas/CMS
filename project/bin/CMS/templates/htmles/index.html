@@ -109,7 +109,12 @@
                     <input
                                 id="id_hidden"
                                 type="hidden"
-                                value="1"
+                                value=""
+                    >
+                    <input
+                                id="header_hidden"
+                                type="hidden"
+                                value=""
                     >
                     <textarea id="title_form" class="htmles_all_right_block_all block_text_title" style="border-bottom: 2px solid #2b2b2b"></textarea>
                     <div class="htmles_all_right_block_top active">
@@ -120,13 +125,11 @@
             </div>
             <div class="htmles_all_right_block">
                 <div class="htmles_all_right_block_top_b d-flex">
-                    <button id="add_block">Добавить БЛОК</button>
+                    <button id="add_block" >Добавить БЛОК</button>
                     <button id="delete_block">Удалить БЛОК</button>
                 </div>
                 <div class="htmles_all_right_block_content">
-                    <div class="htmles_all_right_block_all scroll" style="height: 200px">
-                        <span class="select_sp" data-select="">Основной блок</span>
-                        <span class="select_sp" data-select="">Основной блок</span>
+                    <div class="htmles_all_right_block_all scroll" id="all_elements" style="height: 200px">
                     </div>
                 </div>
             </div>

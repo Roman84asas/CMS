@@ -1,13 +1,15 @@
 (function () {
     const addDiv = document.querySelector('#add_div');
+    const addBlock = document.querySelector('#add_block');
     const addHeader = document.querySelector('#add_header');
     const addSp = document.querySelector('#add_sp');
     const addSpH = document.querySelector('#add_sp_h');
     const close = document.querySelector('#close');
+    const deleteBlock = document.querySelector('#delete_block');
     const closeHead = document.querySelector('#close_head');
+    const deleteDiv = document.querySelector('#delete_div');
     const dataSp = document.querySelectorAll('.data_sp');
     const dataSpH = document.querySelectorAll('.data_sp_h');
-    const selectSp = document.querySelectorAll('.select_sp');
 
     addDiv.addEventListener('click', function (){
         const popup = document.querySelector('#hidden_popup');
@@ -46,20 +48,84 @@
             addSpH.setAttribute('data-add', valueData);
         })
     })
-    selectSp.forEach(function (element) {
-        element.addEventListener('click', function () {
+    addBlock.addEventListener('click', function () {
+        const idHidden = document.querySelector('#id_hidden').value;
+        const headerHidden = document.querySelector('#header_hidden').value;
+        const titleForm = document.querySelector('#title_form').value;
+        const allElements = document.querySelector('#all_elements');
+        const selectSp = document.querySelectorAll('.select_sp');
+        const uniqe = document.querySelector('.uniqe');
+
+        let span = document.createElement('span');
+        span.innerText = titleForm;
+        if (headerHidden !== '') span.setAttribute('data-header', headerHidden);
+        if (idHidden !== '') span.setAttribute('data-select', idHidden);
+        span.classList.add('select_sp');
+
+        if(!addBlock.hasAttribute('data-id-element')) {
+            allElements.append(span);
+            addBlock.removeAttribute('data-id-element');
+            deleteBlock.removeAttribute('data-id-select');
             selectSp.forEach(function (element) {
                 element.classList.remove('active')
+                element.classList.remove('uniqe')
             })
-            element.classList.add('active')
+        } else {
+            uniqe.after(span);
+            addBlock.removeAttribute('data-id-element');
+            deleteBlock.removeAttribute('data-id-select');
+            selectSp.forEach(function (element) {
+                element.classList.remove('active')
+                element.classList.remove('uniqe')
+            })
+        }
+
+        selectSp.forEach(function (element) {
+            element.addEventListener('click', function () {
+                selectSp.forEach(function (element) {
+                    element.classList.remove('active')
+                    element.classList.remove('uniqe')
+                })
+                element.classList.add('active')
+                element.classList.add('uniqe')
+                if(element.hasAttribute('data-header')) {
+                    let value = element.getAttribute('data-header');
+                    addBlock.setAttribute('data-id-element', value)
+                    deleteBlock.setAttribute('data-id-select', value)
+                }
+                if(element.hasAttribute('data-select')) {
+                    let value = element.getAttribute('data-select');
+                    addBlock.setAttribute('data-id-element', value)
+                    deleteBlock.setAttribute('data-id-select', value)
+                }
+            })
+        })
+        deleteBlock.addEventListener('click', function (){
+            if(deleteBlock.hasAttribute('data-id-select')) {
+                $('.uniqe').remove();
+            }
+            selectSp.forEach(function (element) {
+                element.classList.remove('active')
+                element.classList.remove('uniqe')
+            })
+            deleteBlock.removeAttribute('data-id-select');
         })
     })
-
-
+    deleteDiv.addEventListener('click', function () {
+        const idHidden = document.querySelector('#id_hidden');
+        const headerHidden = document.querySelector('#header_hidden');
+        const titleForm = document.querySelector('#title_form');
+        const contentForm = document.querySelector('#content_form');
+        idHidden.value = ''
+        headerHidden.value = ''
+        titleForm.value = ''
+        contentForm.value = ''
+    })
 })()
 $(document).ready(function() {
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
     const idHidden = document.querySelector('#id_hidden');
+    const headerHidden = document.querySelector('#header_hidden');
     const titleForm = document.querySelector('#title_form');
     const contentForm = document.querySelector('#content_form');
     const addSp = document.querySelector('#add_sp');
@@ -70,6 +136,7 @@ $(document).ready(function() {
     $('#add_sp').on('click',function(e){
         e.preventDefault();
         idHidden.value = ''
+        headerHidden.value = ''
         titleForm.value = ''
         contentForm.value = ''
         let valueData = addSp.getAttribute('data-add');
@@ -93,6 +160,7 @@ $(document).ready(function() {
     $('#add_sp_h').on('click',function(e){
         e.preventDefault();
         idHidden.value = ''
+        headerHidden.value = ''
         titleForm.value = ''
         contentForm.value = ''
         let valueData = addSpH.getAttribute('data-add');
@@ -104,7 +172,7 @@ $(document).ready(function() {
                 },
                 function(response){
                     if (response) {
-                        idHidden.value = response.data_id;
+                        headerHidden.value = response.data_id;
                         titleForm.value = response.data_name;
                         contentForm.value = response.data_text;
                         popupH.style.display = 'none';
