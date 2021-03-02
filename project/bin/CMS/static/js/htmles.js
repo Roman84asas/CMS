@@ -3,12 +3,12 @@
    const close = document.querySelector('#close');
 
    addDiv.addEventListener('click', function (){
-       const popup = document.querySelector('#popup');
+       const popup = document.querySelector('#hidden_popup');
        popup.style.display = 'block';
    })
 
    close.addEventListener('click', function (){
-       const popup = document.querySelector('#popup');
+       const popup = document.querySelector('#hidden_popup');
        popup.style.display = 'none';
    })
 })()

@@ -218,6 +218,6 @@ body {
 .block_text_title {
     height: 50px !important;
 }
-.popup {
+.hidden_popup {
     display: none;
 }
