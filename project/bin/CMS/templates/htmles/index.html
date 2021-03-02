@@ -78,7 +78,7 @@
                         Имя HTML страницы
                     </div>
                     <div class="htmles_all_right_block_all">
-                        <input id="top_form" type="text" value="index.html" class="input_top">
+                        <input id="top_form" type="text" value="{{ html_name }}" class="input_top">
                     </div>
                 </div>
             </div>
@@ -88,11 +88,7 @@
                         Использовать шаблон BODY HTML
                     </div>
                     <div class="htmles_all_right_block_all">
-                        <input
-                                id="id_form"
-                                type="text"
-                                value="index.html"
-                                class="input_top">
+                        <input id="id_form" type="text" value="{{ html_use_name }}" class="input_top">
                     </div>
                 </div>
                 <div class="htmles_all_right_block_top_b d-flex">
@@ -130,11 +126,16 @@
                 </div>
                 <div class="htmles_all_right_block_content">
                     <div class="htmles_all_right_block_all scroll" id="all_elements" style="height: 200px">
+                        {% if htmls.body_numbers.count > 0 %}
+                            {% for html in htmls.body_numbers %}
+                                <span data-header="{{ html.id }}" class="select_sp">Основной термидеск</span>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
             <div class="htmles_all_right_block d-flex" style="max-width: 800px; margin: 0 auto;justify-content: space-between">
-                <button type="submit" value="send" id="update">Обновить HTML</button>
+                <button type="submit" value="send" id="update" data-update="{{ html_id }}">Обновить HTML</button>
                 <button type="button" id="write">Записать HTML</button>
             </div>
         </div>

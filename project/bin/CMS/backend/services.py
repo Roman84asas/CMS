@@ -14,10 +14,20 @@ def return_all_html():
     return htmle
 
 
+def html_content(elementid):
+    html_template = HTMLTemplate.objects.get(id=elementid)
+    return html_template
+
+
 def create_new_html(name, use_name, body_numbers):
     html_template = HTMLTemplate(name=name, use_name=use_name, header='New', body_numbers=body_numbers)
     html_template.save()
     return html_template
+
+
+def delete_html(id_html):
+    html_template = HTMLTemplate.objects.get(id=id_html)
+    html_template.delete()
 
 
 def add_div(get_data):

@@ -22,7 +22,7 @@ from backend import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('htmles/', views.index_htmles),
+    path('htmles/<int:elementid>/', views.index_htmles),
     path('htmles/add_data/', views.add_div_id),
     path('htmles/add_header/', views.add_header_id),
     path('bodys/<int:elementid>/', views.index_bodys),
@@ -30,6 +30,7 @@ urlpatterns = [
     path('dives/<int:elementid>/', views.index_dives),
     path('dives/delete_id/', views.delete_div_id),
     path('htmles/create/', views.create_htmles),
+    path('htmles/delete_id/', views.delete_htmles),
     path('htmles/create_html/', views.create_htmles),
     path('bodys/create/<int:elementid>/', views.create_bodys),
     path('dives/create/<int:elementid>/', views.create_dives),

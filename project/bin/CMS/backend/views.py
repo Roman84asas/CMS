@@ -5,7 +5,7 @@ from django.shortcuts import render
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
 from .services import return_all_object, return_body_object, return_dives_object, return_new_body, return_body_form, \
     create_body, delete_body, return_new_div, return_div_form, create_div, delete_div, return_all_html, add_div, \
-    add_header, create_new_html
+    add_header, create_new_html, delete_html, html_content
 
 
 def index(request):
@@ -14,9 +14,10 @@ def index(request):
 
 
 # Html элементы и методы работы с ними
-def index_htmles(request):
+def index_htmles(request, elementid):
+    htmls = html_content(elementid)
     body, dives, htmles = return_all_object()
-    return render(request, 'htmles/index.html', {'bodys': body, 'dives': dives, 'htmles': htmles})
+    return render(request, 'htmles/index.html', {'html_name': htmls.name, 'html_use_name': htmls.use_name, 'html_id': htmls.id, 'bodys': body, 'dives': dives, 'htmles': htmles})
 
 
 def create_htmles(request):
@@ -36,6 +37,17 @@ def create_htmles(request):
         return HttpResponse(json.dumps(data), 'application/json')
     body, dives, htmles = return_all_object()
     return render(request, 'htmles/create.html', {'bodys': body, 'dives': dives, 'htmles': htmles})
+
+
+def delete_htmles(request):
+    data = {'msg': ''}
+    id_delete = request.POST.get('id_delete')
+    if not id_delete:
+        return
+    else:
+        delete_html(id_delete)
+        data['msg'] = id_delete + ' delete'
+        return JsonResponse(data)
 
 
 def add_div_id(request):

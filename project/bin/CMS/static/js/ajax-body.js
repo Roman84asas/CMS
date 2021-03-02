@@ -2,8 +2,10 @@ $(document).ready(function() {
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
     const itemBody = document.querySelectorAll('.item-body');
     const itemDive = document.querySelectorAll('.item-dive');
+    const itemHtml = document.querySelectorAll('.item-html');
     const addSp = document.querySelector('#del-bodys');
     const diveSp = document.querySelector('#del-dive');
+    const delHtmle = document.querySelector('#del-htmle');
 
     $('#del-bodys').on('click',function(e){
         e.preventDefault();
@@ -47,7 +49,7 @@ $(document).ready(function() {
     });
     $('#del-htmle').on('click',function(e){
         e.preventDefault();
-        let valueData = diveSp.getAttribute('data-dive');
+        let valueData = delHtmle.getAttribute('data-htmle');
         if (valueData) {
             $.post('/htmles/delete_id/',
                 {
@@ -56,8 +58,8 @@ $(document).ready(function() {
                 },
                 function(response){
                     if (response.msg) {
-                        itemDive.forEach(function (element){
-                            const valueDataId = element.getAttribute('data-dive');
+                        itemHtml.forEach(function (element){
+                            const valueDataId = element.getAttribute('data-htmle');
                             if (valueDataId == valueData) element.remove();
                         })
                     }
