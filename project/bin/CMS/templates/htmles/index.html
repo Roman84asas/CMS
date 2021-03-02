@@ -126,11 +126,9 @@
                 </div>
                 <div class="htmles_all_right_block_content">
                     <div class="htmles_all_right_block_all scroll" id="all_elements" style="height: 200px">
-                        {% if htmls.body_numbers.count > 0 %}
-                            {% for html in htmls.body_numbers %}
-                                <span data-header="{{ html.id }}" class="select_sp">Основной термидеск</span>
-                            {% endfor %}
-                        {% endif %}
+                        {% for html in items %}
+                            <span data-header="{{ html.data_id }}" class="select_sp">{{ html.data_name }}</span>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

@@ -82,6 +82,11 @@ def return_dives_object(elementid):
     return body.name, body.temp_body_id, body.header, body.text
 
 
+def add_dives(get_data):
+    div = DivSTemplate.objects.get(id=get_data)
+    return div
+
+
 def return_div_form(name, name_id, title_body, all_body):
     form_dives = FormDives()
     form_dives.initial["name"] = name
