@@ -45,4 +45,24 @@ $(document).ready(function() {
             );
         }
     });
+    $('#del-htmle').on('click',function(e){
+        e.preventDefault();
+        let valueData = diveSp.getAttribute('data-dive');
+        if (valueData) {
+            $.post('/htmles/delete_id/',
+                {
+                    'id_delete': valueData,
+                    csrfmiddlewaretoken: csrftoken
+                },
+                function(response){
+                    if (response.msg) {
+                        itemDive.forEach(function (element){
+                            const valueDataId = element.getAttribute('data-dive');
+                            if (valueDataId == valueData) element.remove();
+                        })
+                    }
+                }
+            );
+        }
+    });
 })

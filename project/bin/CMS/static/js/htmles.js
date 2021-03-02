@@ -109,6 +109,7 @@
                 element.classList.remove('uniqe')
             })
             deleteBlock.removeAttribute('data-id-select');
+            addBlock.removeAttribute('data-id-element')
         })
     })
     deleteDiv.addEventListener('click', function () {
@@ -176,6 +177,42 @@ $(document).ready(function() {
                         titleForm.value = response.data_name;
                         contentForm.value = response.data_text;
                         popupH.style.display = 'none';
+                    }
+                }
+            );
+        }
+    });
+    $('#create').on('click',function(e){
+        e.preventDefault();
+        let value = [];
+        const selectSp = document.querySelectorAll('.select_sp');
+        selectSp.forEach(function (element) {
+            if(element.hasAttribute('data-header')) {
+                value.push(element.getAttribute('data-header'))
+            }
+            if(element.hasAttribute('data-select')) {
+                value.push(element.getAttribute('data-select'))
+            }
+        })
+        let name = $('#name_form').val();
+        let use_name = $('#id_form').val();
+        let jsonString = JSON.stringify(value);
+        if (value) {
+            $.post('/htmles/create_html/',
+                {
+                    'name': name,
+                    'use_name': use_name,
+                    'body_numbers': jsonString,
+                     csrfmiddlewaretoken: csrftoken
+                },
+                function(response){
+                    if (response) {
+                        let div = document.createElement('div');
+                        div.innerText = response.data_name;
+                        div.setAttribute('data-htmle', response.data_id)
+                        div.classList.add('item-html');
+                        div.classList.add('item');
+                        $('#html_id').append(div);
                     }
                 }
             );

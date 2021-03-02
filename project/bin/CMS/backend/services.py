@@ -14,6 +14,12 @@ def return_all_html():
     return htmle
 
 
+def create_new_html(name, use_name, body_numbers):
+    html_template = HTMLTemplate(name=name, use_name=use_name, header='New', body_numbers=body_numbers)
+    html_template.save()
+    return html_template
+
+
 def add_div(get_data):
     body = DivSTemplate.objects.get(id=get_data)
     return body
