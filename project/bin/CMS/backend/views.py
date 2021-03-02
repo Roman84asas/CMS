@@ -63,6 +63,46 @@ def create_htmles(request):
     return render(request, 'htmles/create.html', {'bodys': body, 'dives': dives, 'htmles': htmles})
 
 
+def write_html(request):
+    if request.method == 'POST':
+        data = {}
+        name = request.POST.get('name')
+        use_name = request.POST.get('use_name')
+        body_numbers = request.POST.get('body_numbers')
+        body_numbers = json.loads(body_numbers)
+        date = create_new_html(name, use_name, body_numbers)
+        data = {
+            'data_id': date.id,
+            'data_name': date.name,
+            'data_use_name': date.use_name,
+            'data_body_numbers': json.dumps(date.body_numbers)
+        }
+        htmls = html_content(date.id)
+        value = htmls.body_numbers
+        value = list(map(int, re.findall(r'\d+', value)))
+        items = []
+        i = 0
+        for item in value:
+            if i == 0:
+                date = add_header(item)
+                data = {
+                    'data_id': date.temp_body_id,
+                    'data_text': date.text
+                }
+                items.append(data)
+            else:
+                date = add_dives(item)
+                data = {
+                    'data_id': date.temp_body_id,
+                    'data_header': date.header,
+                    'data_text': date.text,
+                }
+                items.append(data)
+            i += 1
+        print(items)
+        return HttpResponse(json.dumps(data), 'application/json')
+
+
 def update_htmles(request):
     if request.method == 'POST':
         data = {'masg': ''}
