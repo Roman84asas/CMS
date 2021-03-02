@@ -124,7 +124,8 @@
                 </div>
                 <div class="htmles_all_right_block_content">
                     <div class="htmles_all_right_block_all scroll" style="height: 200px">
-                        <span data-select=""></span>
+                        <span class="select_sp" data-select="">Основной блок</span>
+                        <span class="select_sp" data-select="">Основной блок</span>
                     </div>
                 </div>
             </div>
@@ -136,14 +137,14 @@
     </section>
     <div class="hidden_popup" id="hidden_popup">
         <div class="popup" id="popup">
-        <div class="close" id="close">X</div>
-        <h2>Выберите блок</h2>
-        <div class="all_dives">
-            <span class="data_sp" data-id="1">Основной блок</span>
-            <span class="data_sp" data-id="2">Основной блок</span>
-            <span class="data_sp" data-id="3">Основной блок</span>
+            <img class="close" id="close" src='{% static "img/cancel.svg" %}' alt="">
+            <h2 class="popup_title">Выберите блок</h2>
+            <div class="all_dives">
+                <span class="data_sp" data-id="1">Основной блок</span>
+                <span class="data_sp" data-id="2">Основной блок</span>
+                <span class="data_sp" data-id="3">Основной блок</span>
+            </div>
         </div>
-    </div>
     </div>
     <script src='{% static "js/Query.min.js" %}'></script>
     <script src='{% static "js/index.js" %}'></script>
