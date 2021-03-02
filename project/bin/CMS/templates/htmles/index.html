@@ -140,10 +140,13 @@
             <img class="close" id="close" src='{% static "img/cancel.svg" %}' alt="">
             <h2 class="popup_title">Выберите блок</h2>
             <div class="all_dives">
-                <span class="data_sp" data-id="1">Основной блок</span>
-                <span class="data_sp" data-id="2">Основной блок</span>
-                <span class="data_sp" data-id="3">Основной блок</span>
+                {% if dives.count > 0 %}
+                    {% for dive in dives %}
+                        <span class="data_sp" data-id="{{ dive.id }}">{{ dive.name }}</span>
+                    {% endfor %}
+                {% endif %}
             </div>
+            <button id="add_sp">Добавить</button>
         </div>
     </div>
     <script src='{% static "js/Query.min.js" %}'></script>

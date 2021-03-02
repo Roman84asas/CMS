@@ -260,7 +260,7 @@ body {
     width: 400px;
     border: 1px solid #4f4f4f;
     margin: 0 auto;
-    height: 360px;
+    height: 320px;
     overflow-y: scroll;
     padding: 5px;
 }
@@ -275,4 +275,20 @@ body {
 .data_sp:hover{
     transition: all 0.3s ease-in-out;
     color: #5ac955;
+}
+#add_sp {
+    height: 30px;
+    width: 100px;
+    margin: 15px auto;
+    cursor: pointer;
+    border-radius: 50px;
+    border: none;
+    background-color: #79aec8;
+    color: #000000;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+}
+#add_sp:hover {
+    background-color: #d6d9dc;
+    transition: all 0.3s ease-in-out;
 }
