@@ -288,7 +288,23 @@ body {
     font-size: 18px;
     transition: all 0.3s ease-in-out;
 }
+#add_sp_h {
+    height: 30px;
+    width: 100px;
+    margin: 15px auto;
+    cursor: pointer;
+    border-radius: 50px;
+    border: none;
+    background-color: #79aec8;
+    color: #000000;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+}
 #add_sp:hover {
+    background-color: #d6d9dc;
+    transition: all 0.3s ease-in-out;
+}
+#add_sp_h:hover {
     background-color: #d6d9dc;
     transition: all 0.3s ease-in-out;
 }

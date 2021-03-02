@@ -97,6 +97,7 @@
                 </div>
                 <div class="htmles_all_right_block_top_b d-flex">
                     <button id="add_div">Добавить БЛОК</button>
+                    <button id="add_header">Добавить HEADER</button>
                     <button id="delete_div">Удалить БЛОК</button>
                 </div>
             </div>
@@ -147,6 +148,20 @@
                 {% endif %}
             </div>
             <button id="add_sp" data-add="">Добавить</button>
+        </div>
+    </div>
+    <div class="hidden_popup" id="hidden_popup_header">
+        <div class="popup" id="popup_head">
+            <img class="close" id="close_head" src='{% static "img/cancel.svg" %}' alt="">
+            <h2 class="popup_title">Выберите HEADER</h2>
+            <div class="all_dives">
+                {% if bodys.count > 0 %}
+                    {% for body in bodys %}
+                        <span class="data_sp" data-id="{{ body.id }}">{{ body.name }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <button id="add_sp_h" data-add="">Добавить</button>
         </div>
     </div>
     <script src='{% static "js/Query.min.js" %}'></script>

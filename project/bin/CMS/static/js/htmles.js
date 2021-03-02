@@ -1,7 +1,9 @@
 (function () {
     const addDiv = document.querySelector('#add_div');
+    const addHeader = document.querySelector('#add_header');
     const addSp = document.querySelector('#add_sp');
     const close = document.querySelector('#close');
+    const closeHead = document.querySelector('#close_head');
     const dataSp = document.querySelectorAll('.data_sp');
     const selectSp = document.querySelectorAll('.select_sp');
 
@@ -9,9 +11,17 @@
         const popup = document.querySelector('#hidden_popup');
         popup.style.display = 'block';
     })
+    addHeader.addEventListener('click', function (){
+        const popup = document.querySelector('#hidden_popup_header');
+        popup.style.display = 'block';
+    })
 
     close.addEventListener('click', function (){
         const popup = document.querySelector('#hidden_popup');
+        popup.style.display = 'none';
+    })
+    closeHead.addEventListener('click', function (){
+        const popup = document.querySelector('#hidden_popup_header');
         popup.style.display = 'none';
     })
     dataSp.forEach(function (element) {
