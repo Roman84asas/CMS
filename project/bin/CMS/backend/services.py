@@ -14,6 +14,11 @@ def return_all_html():
     return htmle
 
 
+def add_div(get_data):
+    body = DivSTemplate.objects.get(id=get_data)
+    return body
+
+
 def return_body_form(name, name_id, all_body):
     form_body = FormBody()
     form_body.initial["name"] = name

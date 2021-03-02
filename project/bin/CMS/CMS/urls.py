@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('htmles/', views.index_htmles),
+    path('htmles/add_data/', views.add_div_id),
     path('bodys/<int:elementid>/', views.index_bodys),
     path('bodys/delete_id/', views.delete_body_id),
     path('dives/<int:elementid>/', views.index_dives),

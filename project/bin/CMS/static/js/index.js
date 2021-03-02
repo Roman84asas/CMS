@@ -1,9 +1,9 @@
 (function () {
-   const itemBody = document.querySelectorAll('.item-body');
-   const itemDive = document.querySelectorAll('.item-dive');
-   const itemHtml = document.querySelectorAll('.item-html');
+    const itemBody = document.querySelectorAll('.item-body');
+    const itemDive = document.querySelectorAll('.item-dive');
+    const itemHtml = document.querySelectorAll('.item-html');
 
-   itemBody.forEach(function (element) {
+    itemBody.forEach(function (element) {
        element.addEventListener('click', function (){
            itemBody.forEach(function (elements){
                elements.classList.remove('active')
@@ -78,4 +78,5 @@
            delBody.setAttribute('data-htmle', valueData);
        })
    })
+
 })()

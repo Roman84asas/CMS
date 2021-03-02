@@ -1,9 +1,10 @@
-from django.http import JsonResponse
+import json
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
 from .services import return_all_object, return_body_object, return_dives_object, return_new_body, return_body_form, \
-    create_body, delete_body, return_new_div, return_div_form, create_div, delete_div, return_all_html
+    create_body, delete_body, return_new_div, return_div_form, create_div, delete_div, return_all_html, add_div
 
 
 def index(request):
@@ -20,6 +21,19 @@ def index_htmles(request):
 def create_htmles(request):
     body, dives, htmles = return_all_object()
     return render(request, 'htmles/create.html', {'bodys': body, 'dives': dives, 'htmles': htmles})
+
+
+def add_div_id(request):
+    data = {}
+    get_data = request.POST.get('get_data')
+    date = add_div(get_data)
+    data = {
+        'data_id': date.id,
+        'data_name': date.name,
+        'data_temp_body_id': date.temp_body_id,
+        'data_text': date.text
+    }
+    return HttpResponse(json.dumps(data), 'application/json')
 
 
 # Боди элементы и методы работы с ними
