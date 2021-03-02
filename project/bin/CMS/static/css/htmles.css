@@ -167,6 +167,7 @@ body {
 }
 .htmles_all_right_block_all {
     padding: 5px 5px;
+    width: 98%;
 }
 .htmles_all_right_block_all span{
     display: block;
@@ -210,4 +211,10 @@ body {
     height: 100%;
     border: none;
     background-color: #f4f4f4;
+}
+.block_text {
+    height: 250px !important;
+}
+.block_text_title {
+    height: 50px !important;
 }
