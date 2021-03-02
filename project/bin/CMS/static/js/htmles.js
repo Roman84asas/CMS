@@ -218,5 +218,39 @@ $(document).ready(function() {
             );
         }
     });
+    $('#update').on('click',function(e){
+        e.preventDefault();
+        let value = [];
+        const selectSp = document.querySelectorAll('.select_sp');
+        selectSp.forEach(function (element) {
+            if(element.hasAttribute('data-header')) {
+                value.push(element.getAttribute('data-header'))
+            }
+            if(element.hasAttribute('data-select')) {
+                value.push(element.getAttribute('data-select'))
+            }
+        })
+        let name = $('#top_form').val();
+        let use_name = $('#id_form').val();
+        let element = document.querySelector('#update')
+        let id_el = element.getAttribute('data-update');
+        let jsonString = JSON.stringify(value);
+        if (value) {
+            $.post('/htmles/update_html/',
+                {
+                    'id_el': id_el,
+                    'name': name,
+                    'use_name': use_name,
+                    'body_numbers': jsonString,
+                     csrfmiddlewaretoken: csrftoken
+                },
+                function(response){
+                    if (response) {
+                        alert('В обновили свой файл, можете его распечатать тепер');
+                    }
+                }
+            );
+        }
+    });
 
 })

@@ -25,6 +25,15 @@ def create_new_html(name, use_name, body_numbers):
     return html_template
 
 
+def update_html(id_el, name, use_name, body_numbers):
+    html_template = HTMLTemplate.objects.get(id=id_el)
+    html_template.name = name
+    html_template.use_name = use_name
+    html_template.header = 'Update'
+    html_template.body_numbers = body_numbers
+    html_template.save()
+
+
 def delete_html(id_html):
     html_template = HTMLTemplate.objects.get(id=id_html)
     html_template.delete()

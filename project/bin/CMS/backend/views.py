@@ -7,7 +7,7 @@ from django.shortcuts import render
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
 from .services import return_all_object, return_body_object, return_dives_object, return_new_body, return_body_form, \
     create_body, delete_body, return_new_div, return_div_form, create_div, delete_div, return_all_html, add_div, \
-    add_header, create_new_html, delete_html, html_content, add_dives
+    add_header, create_new_html, delete_html, html_content, add_dives, update_html
 
 
 def index(request):
@@ -62,6 +62,19 @@ def create_htmles(request):
         return HttpResponse(json.dumps(data), 'application/json')
     body, dives, htmles = return_all_object()
     return render(request, 'htmles/create.html', {'bodys': body, 'dives': dives, 'htmles': htmles})
+
+
+def update_htmles(request):
+    if request.method == 'POST':
+        data = {'masg': ''}
+        id_el = request.POST.get('id_el')
+        name = request.POST.get('name')
+        use_name = request.POST.get('use_name')
+        body_numbers = request.POST.get('body_numbers')
+        body_numbers = json.loads(body_numbers)
+        update_html(id_el, name, use_name, body_numbers)
+        data = {'mesg': 'Update'}
+        return HttpResponse(json.dumps(data), 'application/json')
 
 
 def delete_htmles(request):

@@ -32,6 +32,7 @@ urlpatterns = [
     path('htmles/create/', views.create_htmles),
     path('htmles/delete_id/', views.delete_htmles),
     path('htmles/create_html/', views.create_htmles),
+    path('htmles/update_html/', views.update_htmles),
     path('bodys/create/<int:elementid>/', views.create_bodys),
     path('dives/create/<int:elementid>/', views.create_dives),
     path('favicon.ico', RedirectView.as_view(url='/static/img/termidesk_ico.png')),
