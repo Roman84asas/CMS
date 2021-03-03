@@ -3,6 +3,12 @@
     var opacity_all = document.querySelectorAll(".opacity_all");
     var right_marg = document.querySelectorAll(".right_marg");
     var left_marg = document.querySelectorAll(".left_marg");
+    var section = document.querySelectorAll("section");
+    for (let i = 0; i < section.length; i++) {
+        if (i===0) section[i].classList.add('prime');
+        if (i===1) section[i].classList.add('prime');
+        if (i===2) section[i].classList.add('prime');
+    }
     opacity_all.forEach(function (element) {
         let h_element = element.offsetHeight;
         let pageHeight = element.getBoundingClientRect().top;
