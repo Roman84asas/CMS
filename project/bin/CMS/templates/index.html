@@ -14,18 +14,14 @@
         <h1>Добро пожаловать в CMS!</h1>
         <h3>Выберите статический файл, с которым хотите работать или <a href="/htmles/create">создайте новый</a></h3>
         <div class="all_body_static_files">
-            <a href="/htmles/" class="project">
-                <h2 class="project_title">Первый проект</h2>
-                <span class="project_descr">Проект из первой группы</span>
-            </a>
-            <a href="/htmles/" class="project">
-                <h2 class="project_title">Первый проект</h2>
-                <span class="project_descr">Проект из первой группы</span>
-            </a>
-            <a href="/htmles/" class="project">
-                <h2 class="project_title">Первый проект</h2>
-                <span class="project_descr">Проект из первой группы</span>
-            </a>
+            {% if htmles.count > 0 %}
+                {% for htmle in htmles %}
+                    <a href="/htmles/{{ htmle.id }}" class="project">
+                        <h2 class="project_title">{{ htmle.name }}</h2>
+                        <span class="project_descr">Нажмите и перейдите в проект</span>
+                    </a>
+                {% endfor %}
+            {% endif %}
         </div>
     </section>
 </body>

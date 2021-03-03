@@ -280,7 +280,7 @@ $(document).ready(function() {
                 },
                 function(response){
                     if (response) {
-                        alert('Ваш файл сгенерирован');
+                        alert('Ваш файл сгенерирован в папке Production');
                     }
                 }
             );

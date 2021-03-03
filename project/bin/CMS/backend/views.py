@@ -5,6 +5,7 @@ from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 
 # Загрузачная страница с выводом ссылок на редактор существующих страницы
+from .create_file import create_file
 from .services import return_all_object, return_body_object, return_dives_object, return_new_body, return_body_form, \
     create_body, delete_body, return_new_div, return_div_form, create_div, delete_div, return_all_html, add_div, \
     add_header, create_new_html, delete_html, html_content, add_dives, update_html
@@ -63,46 +64,6 @@ def create_htmles(request):
     return render(request, 'htmles/create.html', {'bodys': body, 'dives': dives, 'htmles': htmles})
 
 
-def write_html(request):
-    if request.method == 'POST':
-        data = {}
-        name = request.POST.get('name')
-        use_name = request.POST.get('use_name')
-        body_numbers = request.POST.get('body_numbers')
-        body_numbers = json.loads(body_numbers)
-        date = create_new_html(name, use_name, body_numbers)
-        data = {
-            'data_id': date.id,
-            'data_name': date.name,
-            'data_use_name': date.use_name,
-            'data_body_numbers': json.dumps(date.body_numbers)
-        }
-        htmls = html_content(date.id)
-        value = htmls.body_numbers
-        value = list(map(int, re.findall(r'\d+', value)))
-        items = []
-        i = 0
-        for item in value:
-            if i == 0:
-                date = add_header(item)
-                data = {
-                    'data_id': date.temp_body_id,
-                    'data_text': date.text
-                }
-                items.append(data)
-            else:
-                date = add_dives(item)
-                data = {
-                    'data_id': date.temp_body_id,
-                    'data_header': date.header,
-                    'data_text': date.text,
-                }
-                items.append(data)
-            i += 1
-        print(items)
-        return HttpResponse(json.dumps(data), 'application/json')
-
-
 def update_htmles(request):
     if request.method == 'POST':
         data = {'masg': ''}
@@ -147,7 +108,7 @@ def update_create_html(request):
                 }
                 items.append(data)
             i += 1
-        print(items)
+        create_file(use_name, items)
         data = {'mesg': 'Update'}
         return HttpResponse(json.dumps(data), 'application/json')
 
