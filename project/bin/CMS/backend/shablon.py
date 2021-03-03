@@ -215,5 +215,42 @@ def select_template_create(item):
 
     if item['data_id'] == '37':
         body = item['data_text']
-        all = '<section class="table_small opacity_all" ><div class="wrapper"><div class="arrow_to_down_all">'+body+'</div></div></section>'
+        all = '<section class="implementation_result opacity_all"><div class="wrapper sm-wrapper"><div class="implementation_result_body flex-wrap-wrap">'+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '38':
+        body = item['data_text']
+        all = '<section class="implementation_result lll opacity_all"><div class="wrapper sm-wrapper lll"><div class="implementation_result_body_right flex-wrap-wrap">'+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '39':
+        body = item['data_text']
+        all = '<section class="implementation_result lll-b opacity_all"><div class="wrapper sm-wrapper"><div class="implementation_result_body flex-wrap-wrap">'+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '40':
+        title = item['data_header']
+        body = item['data_text']
+        all = '<section class="decision_section line_top opacity_all"><div class="wrapper"><div class="decision_section_body short_section">'+title+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '41':
+        body = item['data_text']
+        all = '<div class="slider_section opacity_all"><div class="wrapper"><div class="arrow_right" style="width: 9px;"><svg style="display: block" viewBox="0 0 9.3 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polyline fill="none" stroke="#000000" stroke-linecap="butt" stroke-width="1" points="0.5,0.5 8.5,8.5 0.5,16.5" /> </svg></div><div class="slider single-item">'+body+'</div><div class="arrow_left" style="width: 9px;"><svg style="display: block" viewBox="0 0 9.3 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polyline fill="none" stroke="#000000" stroke-linecap="butt" stroke-width="1" points="0.5,0.5 8.5,8.5 0.5,16.5" /> </svg></div><script>$(".single-item").slick({dots: true,fade: true,cssEase: "linear",slidesToShow: 1,slidesToScroll: 1,speed: 300,adaptiveHeight: true,prevArrow: $(".arrow_right"),nextArrow: $(".arrow_left"),});</script></div></div>'
+        return all
+
+    if item['data_id'] == '42':
+        title = item['data_header']
+        body = item['data_text']
+        all = '<section class="decision_section line_top opacity_all" id="contact"><div class="wrapper"><div class="decision_section_body short_section">'+title+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '43':
+        body = item['data_text']
+        all = '<div id="rec41449744"  class="map opacity_all" ><div class="t117" id="map">'+body+'<script type="text/javascript"> var arMapMarkers41449744=[{title:"УВЕОН - ОБЛАЧНЫЕ ТЕХНОЛОГИИ",descr:"",lat:"55.6740282",lng:"37.5040360",},];$(document).ready(function(){t_appendYandexMap("41449744","");});</script></div></div>'
+        return all
+
+    if item['data_id'] == '44':
+        body = item['data_text']
+        all = '<footer><div class="wrapper">'+body+'</div></footer>'
         return all
