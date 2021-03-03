@@ -183,5 +183,37 @@ def select_template_create(item):
 
     if item['data_id'] == '31':
         body = item['data_text']
-        all = '<section class="custom_block_text"><div class="wrapper">'+body+'</div></section>'
+        all = '<section class="custom_block_text opacity_all"><div class="wrapper">'+body+'</div></section>'
+        return all
+
+    if item['data_id'] == '32':
+        body = item['data_text']
+        all = '<section class="connection_manager_tasks opacity_all"><div class="wrapper"><div class="connection_manager_tasks_body flex-wrap-wrap">'+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '33':
+        title = item['data_header']
+        body = item['data_text']
+        all = '<section class="decision_section line_top opacity_all"><div class="wrapper"><div class="decision_section_body short_section">'+title+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '34':
+        body = item['data_text']
+        all = '<section class="table_small opacity_all" ><div class="wrapper"><div class="arrow_to_down_all">'+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '35':
+        body = item['data_text']
+        all = '<section class="link_demo plus-bb opacity_all"><div class="wrapper">'+body+'</div></section>'
+        return all
+
+    if item['data_id'] == '36':
+        title = item['data_header']
+        body = item['data_text']
+        all = '<section class="decision_section line_top opacity_all"><div class="wrapper"><div class="decision_section_body short_section">'+title+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '37':
+        body = item['data_text']
+        all = '<section class="table_small opacity_all" ><div class="wrapper"><div class="arrow_to_down_all">'+body+'</div></div></section>'
         return all
