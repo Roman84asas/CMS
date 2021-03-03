@@ -121,3 +121,41 @@ def select_template_create(item):
         body = item['data_text']
         all = '<footer><div class="wrapper">'+title+body+'</div></footer>'
         return all
+
+    if item['data_id'] == '20':
+        title = item['data_header']
+        body = item['data_text']
+        all = '<header><div class="mobile"><div class="mobile_container"><div class="mobile_text">'+title+'</div><div class="mobile_burger"><span></span><span></span><span></span><span></span></div></div></div><div class="header_block header_block_fixed"><div class="wrapper">'+body+'<div class="header_block_right_hr"><hr></div></div></div><script>window.addEventListener("scroll", function() { if (document.body.clientWidth > 995){var header_block = document.querySelector(".header_block"); if(pageYOffset > 200){header_block.style.backgroundColor = "rgba(44, 60, 76, 0.2)";} else {header_block.style.backgroundColor = "rgba(44, 60, 76, 0)";}}});var mobileBurger = document.querySelector(".mobile_burger");mobileBurger.addEventListener("click", function () {var mobileContainer = document.querySelector(".mobile");var headerBlock = document.querySelector(".header_block");mobileContainer.classList.contains("mobile_burger_opened") ? mobileContainer.classList.remove("mobile_burger_opened") : mobileContainer.classList.add("mobile_burger_opened");headerBlock.classList.contains("header_block_hidden") ? headerBlock.classList.remove("header_block_hidden") : headerBlock.classList.add("header_block_hidden");})</script></header>'
+        return all
+
+    if item['data_id'] == '21':
+        title = item['data_header']
+        body = item['data_text']
+        all = '<section class="top_section"><div class="wrapper"><div class="top_section_body" id="top_section_body_1"><div class="background_top"></div>'+title+body+'</div></div><script>if (document.body.clientWidth > 995){var topSectionBody = document.querySelector(".top_section").clientHeight;ar backgroundTop = document.querySelector(".background_top");backgroundTop.style.minHeight = topSectionBody + "px";}</script></section>'
+        return all
+
+    if item['data_id'] == '22':
+        title = item['data_header']
+        body = item['data_text']
+        all = '<section class="decision_section opacity_all prime"><div class="wrapper"><div class="decision_section_body">'+title+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '23':
+        body = item['data_text']
+        all = '<section class="section_image opacity_all"><div class="wrapper"><div class="section_VC_body flex-center-jc-sp-between">'+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '24':
+        body = item['data_text']
+        all = '<section class="implementation_result opacity_all"><div class="wrapper"><div class="implementation_result_body flex-wrap-wrap">'+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '25':
+        body = item['data_text']
+        all = '<section class="implementation_result opacity_all"><div class="wrapper"><div class="implementation_result_body_right flex-wrap-wrap">'+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '26':
+        body = item['data_text']
+        all = '<section class="link_demo opacity_all"><div class="wrapper">'+body+'</div></section>'
+        return all
