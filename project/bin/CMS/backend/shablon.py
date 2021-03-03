@@ -97,3 +97,27 @@ def select_template_create(item):
         body = item['data_text']
         all = '<section class="decision_section opacity_all"><div class="wrapper"><div class="decision_section_body lll">'+title+body+'</div></div></section>'
         return all
+
+    if item['data_id'] == '16':
+        title = item['data_header']
+        body = item['data_text']
+        all = '<section class="connections_provides opacity_all"><div class="wrapper"><div class="connections_provides_body">'+title+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '17':
+        title = item['data_header']
+        body = item['data_text']
+        all = '<section class="connections_provides opacity_all"><div class="wrapper"><div class="connections_provides_body">'+title+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '18':
+        title = item['data_header']
+        body = item['data_text']
+        all = '<section class="connections_provides opacity_all"><div class="wrapper"><div class="connections_provides_body">'+title+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '19':
+        title = item['data_header']
+        body = item['data_text']
+        all = '<footer><div class="wrapper">'+title+body+'</div></footer>'
+        return all
