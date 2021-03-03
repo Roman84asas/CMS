@@ -254,3 +254,14 @@ def select_template_create(item):
         body = item['data_text']
         all = '<footer><div class="wrapper">'+body+'</div></footer>'
         return all
+
+    if item['data_id'] == '45':
+        title = item['data_header']
+        body = item['data_text']
+        all = '<section class="decision_section line_top opacity_all"><div class="wrapper"><div class="decision_section_body short_section">'+title+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '46':
+        body = item['data_text']
+        all = '<section class="table_small opacity_all prime"><div class="wrapper"><div class="arrow_to_down_all">'+body+'</div></div></section>'
+        return all
