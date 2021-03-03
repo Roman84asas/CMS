@@ -159,3 +159,29 @@ def select_template_create(item):
         body = item['data_text']
         all = '<section class="link_demo opacity_all"><div class="wrapper">'+body+'</div></section>'
         return all
+
+    if item['data_id'] == '27':
+        title = item['data_header']
+        body = item['data_text']
+        all = '<section class="decision_section line_top opacity_all"><div class="wrapper"><div class="decision_section_body short_section">'+title+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '28':
+        body = item['data_text']
+        all = '<section class="connection_manager opacity_all"><div class="wrapper"><div class="connection_manager_body flex-wrap-wrap">'+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '29':
+        body = item['data_text']
+        all = '<section class="custom_block_text opacity_all"><div class="wrapper"><div class="custom_block_body">'+body+'</div></div></section>'
+        return all
+
+    if item['data_id'] == '30':
+        body = item['data_text']
+        all = '<section class="section_image opacity_all"><div class="wrapper">'+body+'</div></section>'
+        return all
+
+    if item['data_id'] == '31':
+        body = item['data_text']
+        all = '<section class="custom_block_text"><div class="wrapper">'+body+'</div></section>'
+        return all
