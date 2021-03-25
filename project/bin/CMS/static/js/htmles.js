@@ -10,6 +10,31 @@
     const deleteDiv = document.querySelector('#delete_div');
     const dataSp = document.querySelectorAll('.data_sp');
     const dataSpH = document.querySelectorAll('.data_sp_h');
+    const selectSp = document.querySelectorAll('.select_sp');
+
+    if(selectSp) {
+        selectSp.forEach(function (element) {
+            element.addEventListener('click', function () {
+                selectSp.forEach(function (element) {
+                    element.classList.remove('active')
+                    element.classList.remove('uniqe')
+                })
+                element.classList.add('active')
+                element.classList.add('uniqe')
+                if(element.hasAttribute('data-header')) {
+                    let value = element.getAttribute('data-header');
+                    addBlock.setAttribute('data-id-element', value)
+                    deleteBlock.setAttribute('data-id-select', value)
+                }
+                if(element.hasAttribute('data-select')) {
+                    let value = element.getAttribute('data-select');
+                    addBlock.setAttribute('data-id-element', value)
+                    deleteBlock.setAttribute('data-id-select', value)
+                }
+            })
+        })
+    }
+    
 
     addDiv.addEventListener('click', function (){
         const popup = document.querySelector('#hidden_popup');
@@ -53,7 +78,6 @@
         const headerHidden = document.querySelector('#header_hidden').value;
         const titleForm = document.querySelector('#title_form').value;
         const allElements = document.querySelector('#all_elements');
-        const selectSp = document.querySelectorAll('.select_sp');
         const uniqe = document.querySelector('.uniqe');
 
         let span = document.createElement('span');
@@ -79,27 +103,6 @@
                 element.classList.remove('uniqe')
             })
         }
-
-        selectSp.forEach(function (element) {
-            element.addEventListener('click', function () {
-                selectSp.forEach(function (element) {
-                    element.classList.remove('active')
-                    element.classList.remove('uniqe')
-                })
-                element.classList.add('active')
-                element.classList.add('uniqe')
-                if(element.hasAttribute('data-header')) {
-                    let value = element.getAttribute('data-header');
-                    addBlock.setAttribute('data-id-element', value)
-                    deleteBlock.setAttribute('data-id-select', value)
-                }
-                if(element.hasAttribute('data-select')) {
-                    let value = element.getAttribute('data-select');
-                    addBlock.setAttribute('data-id-element', value)
-                    deleteBlock.setAttribute('data-id-select', value)
-                }
-            })
-        })
         deleteBlock.addEventListener('click', function (){
             if(deleteBlock.hasAttribute('data-id-select')) {
                 $('.uniqe').remove();
